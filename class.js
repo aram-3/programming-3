@@ -1,9 +1,10 @@
 // <----------------------------------------------------------------------------------------------------------Grass---------------------------------------------------------------------------------------------------------------->
-class Grass {
-    constructor(x, y) {
+class Blank {
+    constructor(x, y, index) {
         this.x = x;
         this.y = y;
         this.multiply = 0;
+        this.index = index;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -13,25 +14,25 @@ class Grass {
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
-        ]
-    }
+        ];
 
-    chooseCell(character) {
-        var found = []
+    }
+    chooseCell(ch) {
+        var found = [];
         for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
+            var x = this.directions[i][0];
+            var y = this.directions[i][1];
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
+                if (matrix[y][x] == ch) {
+                    found.push(this.directions[i]);
                 }
             }
-
         }
         return found;
-
     }
+}
 
+class Grass extends Blank {
     mult() {
         var empty = random(this.chooseCell(0))
         this.multiply++
@@ -48,21 +49,10 @@ class Grass {
 // <----------------------------------------------------------------------------------------------------------Xotaker---------------------------------------------------------------------------------------------------------------->
 
 
-class Xotaker {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+class Xotaker extends Blank {
+    constructor(x, y, index) {
+        super(x, y, index)
         this.energy = 10;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ]
     }
 
     getNewDirections() {
@@ -80,18 +70,7 @@ class Xotaker {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
-
-        }
-        return found;
+        return super.chooseCell(character);
 
     }
 
@@ -153,21 +132,10 @@ class Xotaker {
 }
 // <----------------------------------------------------------------------------------------------------------Gishatich---------------------------------------------------------------------------------------------------------------->
 
-class Gishatich {
+class Gishatich extends Blank {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energyzer = 10;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ]
     }
 
     getNewDirections() {
@@ -185,18 +153,7 @@ class Gishatich {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
-
-        }
-        return found;
+        return super.chooseCell(character);
 
     }
 
@@ -260,37 +217,10 @@ class Gishatich {
 // <----------------------------------------------------------------------------------------------------------Soul---------------------------------------------------------------------------------------------------------------->
 
 
-class Soul {
+class Soul extends Blank {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energys = 12;
-        this.directions = [
-            [this.x - 2, this.y - 2],
-            [this.x - 1, this.y - 2],
-            [this.x, this.y - 2],
-            [this.x + 1, this.y - 2],
-            [this.x + 2, this.y - 2],
-            [this.x - 2, this.y - 1],
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x + 2, this.y - 1],
-            [this.x - 2, this.y],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x + 2, this.y],
-            [this.x - 2, this.y + 1],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-            [this.x + 2, this.y + 1],
-            [this.x - 2, this.y + 2],
-            [this.x - 1, this.y + 2],
-            [this.x, this.y + 2],
-            [this.x + 1, this.y + 2],
-            [this.x + 2, this.y + 2]
-        ]
     }
 
     getNewDirections() {
@@ -324,18 +254,7 @@ class Soul {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
-
-        }
-        return found;
+        return super.chooseCell(character);
 
     }
 
@@ -402,33 +321,10 @@ class Soul {
 }
 // <----------------------------------------------------------------------------------------------------------Bolt---------------------------------------------------------------------------------------------------------------->
 
-class Bolt {
+class Bolt extends Blank {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energyb = 30;
-        this.directions = [
-            [this.x, this.y - 5],
-            [this.x, this.y - 4],
-            [this.x, this.y - 3],
-            [this.x, this.y - 2],
-            [this.x, this.y - 1],
-            [this.x, this.y + 5],
-            [this.x, this.y + 4],
-            [this.x, this.y + 3],
-            [this.x, this.y + 2],
-            [this.x, this.y + 5],
-            [this.x+1, this.y],
-            [this.x+2, this.y],
-            [this.x+3, this.y],
-            [this.x+4, this.y],
-            [this.x+5, this.y],
-            [this.x-5, this.y],
-            [this.x-4, this.y],
-            [this.x-3, this.y],
-            [this.x-2, this.y],
-            [this.x-1, this.y],
-        ]
     }
 
     getNewDirections() {
@@ -443,33 +339,22 @@ class Bolt {
             [this.x, this.y + 3],
             [this.x, this.y + 2],
             [this.x, this.y + 5],
-            [this.x+1, this.y],
-            [this.x+2, this.y],
-            [this.x+3, this.y],
-            [this.x+4, this.y],
-            [this.x+5, this.y],
-            [this.x-5, this.y],
-            [this.x-4, this.y],
-            [this.x-3, this.y],
-            [this.x-2, this.y],
-            [this.x-1, this.y],  
+            [this.x + 1, this.y],
+            [this.x + 2, this.y],
+            [this.x + 3, this.y],
+            [this.x + 4, this.y],
+            [this.x + 5, this.y],
+            [this.x - 5, this.y],
+            [this.x - 4, this.y],
+            [this.x - 3, this.y],
+            [this.x - 2, this.y],
+            [this.x - 1, this.y],
         ]
     }
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
-
-        }
-        return found;
+        return super.chooseCell(character);
 
     }
 
