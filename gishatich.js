@@ -1,4 +1,4 @@
-var Blank = require('./blank');
+var Blank = require('./blank.js');
 
 module.exports = class Gishatich extends Blank {
     constructor(x, y) {

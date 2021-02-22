@@ -1,4 +1,4 @@
-var Blank = reuqire('./blank');
+var Blank = require('./blank');
 
 module.exports = class Xotaker extends Blank {
     constructor(x, y, index) {

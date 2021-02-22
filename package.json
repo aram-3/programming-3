@@ -1,0 +1,24 @@
+{
+  "name": "serber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aram-3/programming-3.git"
+  },
+  "author": "Aram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aram-3/programming-3/issues"
+  },
+  "homepage": "https://github.com/aram-3/programming-3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.1.1"
+  }
+}

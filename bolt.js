@@ -1,4 +1,4 @@
-var Blank = require('./blank');
+var Blank = require('./blank.js');
 
 module.exports = class Bolt extends Blank {
     constructor(x, y) {
