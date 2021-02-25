@@ -176,10 +176,21 @@ function draw() {
         soulArr[i].eat()
         soulArr[i].move()
         soulArr[i].mult()
-        soulArr[i].die()
     }
 
     for (var i in boltArr) {
+        boltArr[i].eat()
+        boltArr[i].move()
+        boltArr[i].mult()
+        boltArr[i].die()
+    }
+    for (var i in fenderArr) {
+        boltArr[i].eat()
+        boltArr[i].move()
+        boltArr[i].mult()
+        boltArr[i].die()
+    }
+    for (var i in paulArr) {
         boltArr[i].eat()
         boltArr[i].move()
         boltArr[i].mult()
