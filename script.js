@@ -58,7 +58,7 @@ for (var y = 0; y < m; y++) {
             return Math.floor(Math.random() * Math.floor(max));
 
         }
-        matrix[y].push(getRandomInt(6))
+        matrix[y].push(getRandomInt(8))
 
     }
 } console.log(matrix)
@@ -72,6 +72,8 @@ var xotakerArr = [];
 var gishatichArr = [];
 var soulArr = [];
 var boltArr = [];
+var fenderArr = [];
+var paulArr = [];
 
 function setup() {
     for (var y = 0; y < matrix.length; y++) {
@@ -94,6 +96,14 @@ function setup() {
             }
             else if (matrix[y][x] == 5) {
                 var sl = new Bolt(x, y)
+                boltArr.push(sl)
+            }
+            else if (matrix[y][x] == 6) {
+                var sl = new Fender(x, y)
+                boltArr.push(sl)
+            }
+            else if (matrix[y][x] == 7) {
+                var sl = new Paul(x, y)
                 boltArr.push(sl)
             }
 
@@ -126,6 +136,12 @@ function draw() {
             }
             else if (matrix[y][x] == 5) {
                 fill("black");
+            }
+            else if (matrix[y][x] == 6) {
+                fill("orange");
+            }
+            else if (matrix[y][x] == 7) {
+                fill("cyan");
             }
             else if (matrix[y][x] == 0) {
                 fill("#acacac");

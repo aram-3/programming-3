@@ -67,7 +67,7 @@ module.exports = class Soul extends Blank {
     }
 
     eat() {
-        var food = random(this.chooseCell(5))
+        var food = random(this.chooseCell(5,3))
         if (food) {
             var newSX = food[0]
             var newSY = food[1]
@@ -91,14 +91,4 @@ module.exports = class Soul extends Blank {
         }
     }
 
-    die() {
-        if (this.energys <= 0) {
-            matrix[this.y][this.x] = 0
-            for (var i in soulArr) {
-                if (soulArr[i].x == this.x && soulArr[i].y == this.y) {
-                    soulArr.splice(i, 1)
-                }
-            }
-        }
-    }
 }
