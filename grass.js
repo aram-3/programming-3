@@ -1,8 +1,8 @@
-var Blank = require('./blank');
+let Blank = require('./blank');
 
 module.exports = class Grass extends Blank {
     mult() {
-        var empty = random(this.chooseCell(0))
+        var empty = Math.random(this.chooseCell(0))
         this.multiply++
         if (empty && this.multiply > 3) {
             var newX = empty[0]

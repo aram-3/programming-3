@@ -1,4 +1,4 @@
-var Blank = require('./blank');
+let Blank = require('./blank');
 
 module.exports = class Soul extends Blank {
     constructor(x, y) {
