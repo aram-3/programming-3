@@ -26,7 +26,7 @@ module.exports = class Gishatich extends Blank {
     }
 
     mult() {
-        var empty = random(this.chooseCell(2))
+        var empty = super.random(this.chooseCell(2))
         if (empty && this.energyzer > 12) {
             var newGX = empty[0]
             var newGY = empty[1]
@@ -37,7 +37,7 @@ module.exports = class Gishatich extends Blank {
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var empty = super.random(this.chooseCell(0))
         this.energyzer -= 2;
         if (empty) {
             var newGX = empty[0]
@@ -51,7 +51,7 @@ module.exports = class Gishatich extends Blank {
     }
 
     eat() {
-        var food = random(this.chooseCell(2))
+        var food = super.random(this.chooseCell(2))
         if (food) {
             var newGX = food[0]
             var newGY = food[1]

@@ -30,4 +30,7 @@ module.exports = class Blank {
         }
         return found;
     }
+    random(arr){
+        return arr[Math.floor(Math.random()*arr.length)];
+    }
 }

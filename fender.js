@@ -3,7 +3,7 @@ let Blank = require('./blank.js');
 module.exports = class Fender extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energyf = 10;
+        this.energyf = 50;
     }
 
     getNewDirections() {
@@ -30,18 +30,18 @@ module.exports = class Fender extends Blank {
     }
 
     mult() {
-        var empty = random(this.chooseCell(0))
+        var empty = super.random(this.chooseCell(0))
         if (empty && this.energyf > 12) {
             var newFX = empty[0]
             var newFY = empty[1]
             matrix[newFY][newFX] = 6
-            var fen = new Fender(newFX, newFY)
-            fenderArr.push(fen)
+            var fd = new Fender(newFX, newFY)
+            fenderArr.push(fd)
         }
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var empty = super.random(this.chooseCell(0))
         this.energyf -= 2;
         if (empty) {
             var newFX = empty[0]
@@ -55,7 +55,7 @@ module.exports = class Fender extends Blank {
     }
 
     eat() {
-        var food = random(this.chooseCell(4))
+        var food = super.random(this.chooseCell(4))
         if (food) {
             var newFX = food[0]
             var newFY = food[1]

@@ -3,7 +3,7 @@ let Blank = require('./blank');
 module.exports = class Soul extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energys = 12;
+        this.energys = 42;
     }
 
     getNewDirections() {
@@ -42,7 +42,7 @@ module.exports = class Soul extends Blank {
     }
 
     mult() {
-        var empty = random(this.chooseCell(3))
+        var empty = super.random(this.chooseCell(3))
         if (empty && this.energys > 7) {
             var newSX = empty[0]
             var newSY = empty[1]
@@ -53,7 +53,7 @@ module.exports = class Soul extends Blank {
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var empty = super.random(this.chooseCell(0))
         this.energys -= 3;
         if (empty) {
             var newSX = empty[0]
@@ -67,7 +67,7 @@ module.exports = class Soul extends Blank {
     }
 
     eat() {
-        var food = random(this.chooseCell(5,3))
+        var food = super.random(this.chooseCell(5,3))
         if (food) {
             var newSX = food[0]
             var newSY = food[1]
@@ -90,5 +90,14 @@ module.exports = class Soul extends Blank {
             this.energys += 4
         }
     }
-
+    die() {
+        if (this.energy <= 0) {
+            matrix[this.y][this.x] = 0
+            for (var i in spulArr) {
+                if (spulArr[i].x == this.x && spulArr[i].y == this.y) {
+                    spulArr.splice(i, 1)
+                }
+            }
+        }
+    }
 }

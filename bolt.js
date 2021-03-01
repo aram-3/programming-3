@@ -3,7 +3,7 @@ let Blank = require('./blank.js');
 module.exports = class Bolt extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energyb = 30;
+        this.energyb = 70;
     }
 
     getNewDirections() {
@@ -38,7 +38,7 @@ module.exports = class Bolt extends Blank {
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var empty = super.random(this.chooseCell(0))
         this.energyb -= 2;
         if (empty) {
             var newBX = empty[0]
@@ -52,7 +52,7 @@ module.exports = class Bolt extends Blank {
     }
 
     mult() {
-        var empty = random(this.chooseCell(2))
+        var empty = super.random(this.chooseCell(2))
         if (empty && this.energyb > 10) {
             var newBX = empty[0]
             var newBY = empty[1]
@@ -62,7 +62,7 @@ module.exports = class Bolt extends Blank {
         }
     }
     eat() {
-        var food = random(this.chooseCell(2))
+        var food = super.random(this.chooseCell(2))
         if (food) {
             var newBX = food[0]
             var newBY = food[1]

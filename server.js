@@ -18,7 +18,7 @@ soulArr = [];
 boltArr = [];
 fenderArr = [];
 paulArr = [];
-var matrix = [];
+matrix = [];
 var side = 10;
 
 var w = 50;
@@ -129,15 +129,15 @@ function game() {
         boltArr[i].die()
     }
     for (var i in fenderArr) {
-        boltArr[i].eat()
-        boltArr[i].move()
-        boltArr[i].mult()
-        boltArr[i].die()
+        fenderArr[i].eat()
+        fenderArr[i].move()
+        fenderArr[i].mult()
+        fenderArr[i].die()
     }
     for (var i in paulArr) {
-        boltArr[i].eat()
-        boltArr[i].move()
-        boltArr[i].die()
+        paulArr[i].eat()
+        paulArr[i].move()
+        paulArr[i].die()
     }
     io.sockets.emit('send matrix', server);
 }
