@@ -184,6 +184,25 @@ function change(){
     var newxotakerArr = xotakerArr;
     grassArr = newxotakerArr;
     xotakerArr = newgrassArr;
+    io.sockets.emit("send matrix", matrix);
+}
+function addrandom(){
+    var tiv = Math.floor(Math.random()*7)+1;
+    var add1 = [grassArr,grassArr,xotakerArr,gishtaichArr, soulArr,boltArr,fenderArr,paulArr]; 
+    var add2 = [new Grass,new Grass,new Xotaker,new Gishatich,new Soul,new Bolt,new Fender,new Paul]; 
+    for (let u = 0; u <= tiv; u++) {
+        for (var i = 0; i < 2; i++) {   
+            var x = Math.floor(Math.random() * matrix[0].length)
+            var y = Math.floor(Math.random() * matrix.length)
+                }
+            }
+            if(matrix)
+            if (matrix[y][x] == 0) {
+                matrix[y][x] = u
+                add1[u].push(add2[u](x, y, 2))
+    }
+    
+    io.sockets.emit("send matrix", matrix);
 }
 io.on('connection', function (socket) {
     start();
@@ -191,6 +210,7 @@ io.on('connection', function (socket) {
     socket.on("add grass", addGrass);
     socket.on("add xotaker", addXotaker);
     socket.on("add change", change);
+    socket.on("add random", addrandom);
 });
 
 var statistics = {};
