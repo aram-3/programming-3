@@ -3,13 +3,13 @@ var socket = io();
 
 var side = 10;
 function setup(){
-    frameRate(16)
     createCanvas(50 * side,50 * side);
     background('#acacac');
 }
 
-
 function nkarel(matrix) {
+    
+console.log(matrix);
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[0].length; x++) {
             if (matrix[y][x] == 1) {
@@ -55,6 +55,6 @@ function addGrass() {
 function addXotaker() {
     socket.emit("add xotaker")
 }
-function change() {
+function addrandom() {
     socket.emit("add change")
 }

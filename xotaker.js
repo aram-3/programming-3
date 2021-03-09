@@ -3,7 +3,7 @@ var Blank = require('./blank');
 module.exports = class Xotaker extends Blank {
     constructor(x, y, index) {
         super(x, y, index)
-        this.energy = 40;
+        this.energy = 7;
     }
 
     getNewDirections() {

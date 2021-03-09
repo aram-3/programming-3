@@ -3,7 +3,7 @@ let Blank = require('./blank.js');
 module.exports = class Fender extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energyf = 50;
+        this.energyf = 5;
     }
 
     getNewDirections() {

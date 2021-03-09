@@ -2,7 +2,7 @@ module.exports = class Blank {
     constructor(x, y, index) {
         this.x = x;
         this.y = y;
-        this.multiply = 0;
+        this.multiply = 4;
         this.index = index;
     }
 	getNewDirections(){

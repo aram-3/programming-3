@@ -105,6 +105,9 @@ function game() {
     }
     for (var i in xotakerArr) {
         xotakerArr[i].mult()
+        xotakerArr[i].move()
+        xotakerArr[i].eat()
+        xotakerArr[i].die()
     }
 
 
@@ -139,7 +142,7 @@ function game() {
         paulArr[i].move()
         paulArr[i].die()
     }
-    io.sockets.emit('send matrix', server);
+    io.sockets.emit('send matrix', matrix);
 }
 setInterval(game, 1000)
 
@@ -179,13 +182,6 @@ function addXotaker() {
     }
     io.sockets.emit("send matrix", matrix);
 }
-function change(){
-    var newgrassArr = grassArr;
-    var newxotakerArr = xotakerArr;
-    grassArr = newxotakerArr;
-    xotakerArr = newgrassArr;
-    io.sockets.emit("send matrix", matrix);
-}
 function addrandom(){
     var tiv = Math.floor(Math.random()*7)+1;
     var add1 = [grassArr,grassArr,xotakerArr,gishtaichArr, soulArr,boltArr,fenderArr,paulArr]; 
@@ -209,7 +205,6 @@ io.on('connection', function (socket) {
     socket.on("kill", kill);
     socket.on("add grass", addGrass);
     socket.on("add xotaker", addXotaker);
-    socket.on("add change", change);
     socket.on("add random", addrandom);
 });
 

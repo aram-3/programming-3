@@ -3,7 +3,7 @@ let Blank = require('./blank');
 module.exports = class Soul extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energys = 42;
+        this.energys = 5;
     }
 
     getNewDirections() {

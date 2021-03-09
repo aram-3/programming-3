@@ -3,7 +3,7 @@ let Blank = require('./blank.js');
 module.exports = class Bolt extends Blank {
     constructor(x, y) {
         super(x, y)
-        this.energyb = 70;
+        this.energyb = 11;
     }
 
     getNewDirections() {
